@@ -7,6 +7,6 @@ La empresa MetroBus Panamá y su página de consulta de saldo
 
 
 <h2>Complejidad</h2>
-Básica, de hecho trate de eliminarle todo el codigo posible, y aunque aun se puede mejorar, tambien se tenia que entender de una manera simple
+Básica, de hecho traté de eliminarle todo el codigo de maquillaje posible, solo quedó lo necesario, y aunque aun se puede mejorar, tambien se tenia que entender de una manera simple
 
 
