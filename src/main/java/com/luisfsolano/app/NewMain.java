@@ -5,8 +5,8 @@
  */
 package com.luisfsolano.app;
 
-import com.luisfsolano.Bean.TarjetaBean;
-import com.luisfsolano.Controller.TarjetaController;
+import com.luisfsolano.bean.TarjetaBean;
+import com.luisfsolano.controller.TarjetaController;
 import java.util.Scanner;
 
 /**

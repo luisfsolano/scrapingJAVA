@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.luisfsolano.Controller;
+package com.luisfsolano.controller;
 
-import com.luisfsolano.Bean.TarjetaBean;
+import com.luisfsolano.bean.TarjetaBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
