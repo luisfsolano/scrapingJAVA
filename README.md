@@ -12,7 +12,7 @@ Básica, de hecho traté de eliminarle todo el codigo de maquillaje posible, sol
 <h2>Funcionamiento</h2>
 Se trabaja directamente sobre la URL que hace la petición que seria la de a continuación
 
-<br>
 http://200.46.245.230:8080/PortalCAE-WAR-MODULE/SesionPortalServlet?accion=6&NumDistribuidor=99&NomUsuario=usuInternet&NomHost=AFT&NomDominio=aft.cl&Trx=&RutUsuario=0&NumTarjeta="+id+"&bloqueable=
+
 
 como pueden ver el ejemplo se hace mas sencillo aún porque la peticion se maneja por Get, más adelante veremos como implementarlo en una app.
