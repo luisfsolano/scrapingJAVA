@@ -28,10 +28,10 @@ public class NewMain {
         TarjetaController tController = new TarjetaController();
         
         //Creacion de Tarjeta
-        tController.CrearTarjeta(id);
+        tController.crearTarjeta(id);
         
         // Bean
-        TarjetaBean tarjeta = tController.DevolverTarjeta();
+        TarjetaBean tarjeta = tController.devolverTarjeta();
         
         //impresion
         System.out.println("id: "+tarjeta.getIdTarjeta()+" saldo: "+tarjeta.getSaldo());

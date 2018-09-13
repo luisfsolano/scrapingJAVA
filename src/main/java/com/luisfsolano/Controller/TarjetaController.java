@@ -22,7 +22,7 @@ public class TarjetaController {
     
     TarjetaBean tarjeta = new TarjetaBean();
     
-    public void CrearTarjeta(int id){
+    public void crearTarjeta(int id){
         String url = "http://200.46.245.230:8080/PortalCAE-WAR-MODULE/SesionPortalServlet?accion=6&NumDistribuidor=99&NomUsuario=usuInternet&NomHost=AFT&NomDominio=aft.cl&Trx=&RutUsuario=0&NumTarjeta="+id+"&bloqueable=";
                 try {
                     Document document = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(100000).get();
@@ -35,7 +35,7 @@ public class TarjetaController {
             
     }
     
-    public TarjetaBean DevolverTarjeta(){
+    public TarjetaBean devolverTarjeta(){
         return tarjeta;
     }
     
