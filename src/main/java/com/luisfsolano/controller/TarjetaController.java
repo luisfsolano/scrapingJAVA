@@ -5,7 +5,8 @@
  */
 package com.luisfsolano.controller;
 
-import com.luisfsolano.bean.TarjetaBean;
+import com.luisfsolano.model.Tarjeta;
+import java.util.Scanner;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,22 +21,34 @@ public class TarjetaController {
     
     
     
-    TarjetaBean tarjeta = new TarjetaBean();
+    Tarjeta tarjeta = new Tarjeta();
     
     public void crearTarjeta(int id){
+
         String url = "http://200.46.245.230:8080/PortalCAE-WAR-MODULE/SesionPortalServlet?accion=6&NumDistribuidor=99&NomUsuario=usuInternet&NomHost=AFT&NomDominio=aft.cl&Trx=&RutUsuario=0&NumTarjeta="+id+"&bloqueable=";
                 try {
-                    Document document = Jsoup.connect(url).userAgent("Mozilla/5.0").timeout(100000).get();
+                    Document document = Jsoup.connect(url).timeout(100000).get();
                     Elements entradas = document.select("td.verdanabold-ckc");
                     tarjeta.setIdTarjeta(Integer.parseInt(entradas.get(1).getElementsByClass("verdanabold-ckc").text()));
                     tarjeta.setSaldo(Double.parseDouble(entradas.get(5).getElementsByClass("verdanabold-ckc").text()));
+                   
+                    Elements movimientos = document.getElementsByTag("input");
+                    tarjeta.setKsi(movimientos.get(0).val());
+                    tarjeta.setAlias("tar");
+                    //System.out.println("ingrese el alias de la tarjeta");
+                    //Scanner sc = new Scanner(System.in);
+                    //alias = sc.nextLine();
+                    
+                    
+                    
+                    
                 } catch (Exception e) {
-                    System.out.println(">>>>>>>  Excepcion: "+e.getMessage()+"-----"+e.getLocalizedMessage());
-                }
-            
+                    System.out.println(">>>>>>>  Excepcion Controller: "+e.getMessage()+"-----"+e.getLocalizedMessage());
+                }    
+                 
     }
     
-    public TarjetaBean devolverTarjeta(){
+    public Tarjeta devolverTarjeta(){
         return tarjeta;
     }
     
