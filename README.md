@@ -2,7 +2,7 @@
 En este repo podras ver un proyecto Java Maven que utiliza jsoup para hacer Scrapping. Hecho en NetBeans
 
 
-<h2>la víctima</h2>
+<h2>El sujeto de prueba</h2>
 La empresa MetroBus Panamá y su página de consulta de saldo
 
 
