@@ -5,7 +5,7 @@
  */
 package com.luisfsolano.controller;
 
-import com.luisfsolano.model.Tarjeta;
+import com.luisfsolano.bean.Tarjeta;
 import java.util.Scanner;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,7 +23,7 @@ public class TarjetaController {
     
     Tarjeta tarjeta = new Tarjeta();
     
-    public void crearTarjeta(int id){
+    public Tarjeta crearTarjeta(Integer id, String alias){
 
         String url = "http://200.46.245.230:8080/PortalCAE-WAR-MODULE/SesionPortalServlet?accion=6&NumDistribuidor=99&NomUsuario=usuInternet&NomHost=AFT&NomDominio=aft.cl&Trx=&RutUsuario=0&NumTarjeta="+id+"&bloqueable=";
                 try {
@@ -34,16 +34,14 @@ public class TarjetaController {
                    
                     Elements movimientos = document.getElementsByTag("input");
                     tarjeta.setKsi(movimientos.get(0).val());
-                    tarjeta.setAlias("tar");
-                    //System.out.println("ingrese el alias de la tarjeta");
-                    //Scanner sc = new Scanner(System.in);
-                    //alias = sc.nextLine();
+                    tarjeta.setAlias(alias);
                     
-                    
+                    return tarjeta;
                     
                     
                 } catch (Exception e) {
                     System.out.println(">>>>>>>  Excepcion Controller: "+e.getMessage()+"-----"+e.getLocalizedMessage());
+                    return null;
                 }    
                  
     }

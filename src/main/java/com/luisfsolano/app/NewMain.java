@@ -5,9 +5,9 @@
  */
 package com.luisfsolano.app;
 
-import com.luisfsolano.model.Tarjeta;
+import com.luisfsolano.bean.Tarjeta;
 import com.luisfsolano.controller.TarjetaController;
-import com.luisfsolano.model.TarjetaDao;
+import com.luisfsolano.dao.TarjetaDao;
 import java.util.Scanner;
 
 /**
@@ -21,24 +21,26 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-        // objeto para escanear
-        System.out.println("ingrese el No. de tarjeta");
-        Scanner sc = new Scanner(System.in);
-        int id = sc.nextInt();
+//        Scanner scaner = new Scanner(System.in);
+//        
+//        System.out.println("Ingrese el alias de la tarjeta");
+//        String alias = scaner.nextLine();
+//        
+//        System.out.println("ingrese el No. de tarjeta");
+//        Integer id = scaner.nextInt();
         
-        for (int i = id; i <= id+20; i++) {
-            TarjetaController tController = new TarjetaController();
+        TarjetaController tController = new TarjetaController();
 
-            //Creacion de Tarjeta
-            tController.crearTarjeta(i);
+        //Creacion de Tarjeta
+        Tarjeta tarjeta = tController.crearTarjeta(32350144,"Luis Solano");
+        System.out.println(tarjeta.getSaldo());
+        // Bean
+        //Tarjeta tarjeta = tController.devolverTarjeta() ;
 
-            // Bean
-            //Tarjeta tarjeta = tController.devolverTarjeta() ;
-
-            //Guardar en la base de datos
-            TarjetaDao tarjetaDao = new TarjetaDao();
-            tarjetaDao.insert(tController.devolverTarjeta());
-        }
+        //Guardar en la base de datos
+//        TarjetaDao tarjetaDao = new TarjetaDao();
+//        tarjetaDao.insert(tController.devolverTarjeta());
+        
         
         
         //impresion

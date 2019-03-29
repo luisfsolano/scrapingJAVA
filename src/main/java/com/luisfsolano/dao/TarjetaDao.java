@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.luisfsolano.model;
+package com.luisfsolano.dao;
 
-import com.luisfsolano.controller.ConnSession;
-import com.luisfsolano.controller.crudOperations;
-import com.luisfsolano.model.Tarjeta;
+import com.luisfsolano.controller.ConexionController;
+import com.luisfsolano.faces.CrudInterfaces;
+import com.luisfsolano.bean.Tarjeta;
 import java.util.List;
 
 /**
  *
  * @author lsolano
  */
-public class TarjetaDao implements crudOperations<Tarjeta>{
-    ConnSession connSession;
+public class TarjetaDao implements CrudInterfaces<Tarjeta>{
+    ConexionController connSession;
     public TarjetaDao() {
-        connSession = new ConnSession();
+        connSession = new ConexionController();
     }
 
     @Override

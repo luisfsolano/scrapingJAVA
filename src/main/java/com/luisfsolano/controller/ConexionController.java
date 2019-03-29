@@ -13,9 +13,9 @@ import org.hibernate.cfg.Configuration;
  *
  * @author lsolano
  */
-public class ConnSession {
+public class ConexionController {
     private Session session;
-    public ConnSession() {
+    public ConexionController() {
         Configuration configuration = new Configuration();
         configuration.configure();
         SessionFactory sessionFactory = configuration.buildSessionFactory();

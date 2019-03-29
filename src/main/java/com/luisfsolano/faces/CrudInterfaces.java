@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.luisfsolano.controller;
+package com.luisfsolano.faces;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author lsolano
  */
-public interface crudOperations<T> {
+public interface CrudInterfaces<T> {
 	void insert(T obj);
 	void delete(T obj);
 	void update(T obj);
