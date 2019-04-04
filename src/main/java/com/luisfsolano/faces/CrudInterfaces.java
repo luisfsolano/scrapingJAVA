@@ -12,8 +12,9 @@ import java.util.List;
  * @author lsolano
  */
 public interface CrudInterfaces<T> {
-	void insert(T obj);
+	T insert(T obj);
+        T findById(Integer id);
 	void delete(T obj);
-	void update(T obj);
+	T update(T obj);
 	List<T> listAll();
 }

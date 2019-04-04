@@ -21,9 +21,12 @@ public class TarjetaDao implements CrudInterfaces<Tarjeta>{
     }
 
     @Override
-    public void insert(Tarjeta obj) {
-        connSession.getSession().persist(obj);
-        connSession.getSession().getTransaction().commit();
+    public Tarjeta insert(Tarjeta obj) {
+        
+            connSession.getSession().saveOrUpdate(obj);
+            connSession.getSession().getTransaction().commit();
+            return obj;
+        
     }
 
     @Override
@@ -32,13 +35,35 @@ public class TarjetaDao implements CrudInterfaces<Tarjeta>{
     }
 
     @Override
-    public void update(Tarjeta obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Tarjeta update(Tarjeta obj) {
+        try {
+            connSession.getSession().update(obj);
+            System.out.println("TARJETA ACTUALIZADA");
+            return obj;  
+        } catch (Exception e) {
+            System.out.println("ERROR AL ACTUALIZAR");
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
     public List<Tarjeta> listAll() {
-        return connSession.getSession().createQuery("from Tarjetas").list();
+        return connSession.getSession().createCriteria(Tarjeta.class).list();
+    }
+    
+    @Override
+    public Tarjeta findById(Integer id) {
+        try {
+            Tarjeta buscada = (Tarjeta) connSession.getSession().get(Tarjeta.class, id);
+            return buscada;
+        } catch (Exception e) {
+            return null;
+        }        
+    }
+    
+    public void CloseSession(){
+        connSession.getSession().disconnect();
     }
     
 }

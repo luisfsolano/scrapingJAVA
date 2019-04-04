@@ -23,10 +23,10 @@ public class Tarjeta implements Serializable {
     
     @Id
     @Column(name="id")
-    int idTarjeta;
+    Integer idTarjeta;
     
     @Column(name="saldo")
-    double saldo;
+    Double saldo;
     
     @Column(name="ksi")
     String ksi;
@@ -34,7 +34,7 @@ public class Tarjeta implements Serializable {
     @Column(name="alias")
     String alias;
     
-    public Tarjeta(int idTarjeta, double saldo, String ksi, String alias) {
+    public Tarjeta(Integer idTarjeta, Double saldo, String ksi, String alias) {
         this.idTarjeta = idTarjeta;
         this.saldo = saldo;
         this.ksi = ksi;
@@ -44,11 +44,11 @@ public class Tarjeta implements Serializable {
     public Tarjeta() {
     }
 
-    public void setIdTarjeta(int idTarjeta) {
+    public void setIdTarjeta(Integer idTarjeta) {
         this.idTarjeta = idTarjeta;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
@@ -56,7 +56,7 @@ public class Tarjeta implements Serializable {
         return idTarjeta;
     }
 
-    public double getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
@@ -76,5 +76,15 @@ public class Tarjeta implements Serializable {
         this.alias = alias;
     }
     
+    public Tarjeta getDatos(){
+        
+        this.setAlias       (   this.alias      != null ? alias         : "no tiene Alias"  );
+        this.setKsi         (   this.ksi        != null ? ksi           : "no tiene Ksi"    );
+        this.setIdTarjeta   (   this.idTarjeta  != null ? idTarjeta     : 0                 );
+        this.setSaldo       (   this.saldo      != null ? saldo         : 0.00              );
+        
+        return this;
+        
+    }
     
 }

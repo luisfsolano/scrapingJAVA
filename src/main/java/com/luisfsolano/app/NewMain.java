@@ -8,6 +8,8 @@ package com.luisfsolano.app;
 import com.luisfsolano.bean.Tarjeta;
 import com.luisfsolano.controller.TarjetaController;
 import com.luisfsolano.dao.TarjetaDao;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -30,22 +32,18 @@ public class NewMain {
 //        Integer id = scaner.nextInt();
         
         TarjetaController tController = new TarjetaController();
-
-        //Creacion de Tarjeta
-        Tarjeta tarjeta = tController.crearTarjeta(32350144,"Luis Solano");
-        System.out.println(tarjeta.getSaldo());
-        // Bean
-        //Tarjeta tarjeta = tController.devolverTarjeta() ;
-
-        //Guardar en la base de datos
-//        TarjetaDao tarjetaDao = new TarjetaDao();
-//        tarjetaDao.insert(tController.devolverTarjeta());
+//        Tarjeta tarjeta = tController.crearTarjeta(32350141,"yarelis");
+//        Tarjeta tarjeta = tController.BuscarTarjeta(32350141);
+//        System.out.println("id: \""+tarjeta.getIdTarjeta()+"\" alias: \""+tarjeta.getAlias()+"\" saldo: \""+tarjeta.getSaldo()+"\"");
         
+        List<Tarjeta> tarjetas = new ArrayList<>();
+        tarjetas.addAll(tController.ListarTodas());
         
+        for (Tarjeta tarjeta : tarjetas) {
+            System.out.println("id: \""+tarjeta.getIdTarjeta()+"\" alias: \""+tarjeta.getAlias()+"\" saldo: \""+tarjeta.getSaldo()+"\"");
+        }
         
-        //impresion
-        //System.out.println("id: "+tarjeta.getIdTarjeta()+" KSI: "+tarjeta.getKsi()+" saldo: "+tarjeta.getSaldo());
-        
+        System.exit(0); 
     }
     
 }
